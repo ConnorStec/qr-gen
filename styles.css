@@ -1,0 +1,122 @@
+:root {
+  --bg: #f5f6f8;
+  --fg: #1a1d21;
+  --muted: #6b7280;
+  --border: #d9dde3;
+  --accent: #2563eb;
+  --accent-fg: #ffffff;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 28rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  display: grid;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-bottom: 0.375rem;
+}
+
+textarea,
+input[type="number"],
+select {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.625rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: var(--accent);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.output {
+  display: grid;
+  place-items: center;
+  min-height: 10rem;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: none;
+}
+
+canvas.visible { display: block; }
+
+.hint {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.hint.error { color: #b91c1c; }
+
+button {
+  font: inherit;
+  font-weight: 500;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: 0;
+  border-radius: 6px;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover { filter: brightness(1.05); }

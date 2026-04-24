@@ -12,8 +12,11 @@ import QRCode from "qrcode";
   const logoOptions = document.getElementById("logo-options");
   const logoSizeEl = document.getElementById("logo-size");
   const logoSizeValueEl = document.getElementById("logo-size-value");
+  const colorEl = document.getElementById("color");
+  const swatchEls = document.querySelectorAll(".swatch");
 
   let logoImage = null;
+  let color = "#000000";
 
   const render = async () => {
     const value = textEl.value.trim();
@@ -32,6 +35,7 @@ import QRCode from "qrcode";
         width: size,
         margin: 2,
         errorCorrectionLevel: eclEl.value,
+        color: { dark: color, light: "#ffffff" },
       });
       canvas.style.width = "";
       canvas.style.height = "";
@@ -128,6 +132,20 @@ import QRCode from "qrcode";
   clearLogoBtn.addEventListener("click", clearLogo);
   logoSizeEl.addEventListener("input", () => {
     logoSizeValueEl.textContent = `${logoSizeEl.value}%`;
+  });
+
+  swatchEls.forEach((s) => {
+    s.addEventListener("click", () => {
+      color = s.dataset.color;
+      colorEl.value = color;
+      swatchEls.forEach((x) => x.classList.toggle("active", x === s));
+      render();
+    });
+  });
+  colorEl.addEventListener("input", () => {
+    color = colorEl.value;
+    swatchEls.forEach((x) => x.classList.remove("active"));
+    render();
   });
 
   [textEl, sizeEl, eclEl, logoSizeEl].forEach((el) =>

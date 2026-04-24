@@ -1,143 +1,141 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>QR Code Generator</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <main class="card">
-            <h1>QR Code Generator</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>QR Code Generator</h1>
 
-            <label for="text">Text or URL</label>
-            <textarea
-                id="text"
-                rows="3"
-                placeholder="https://example.com"
-                autofocus
-            ></textarea>
+      <label for="text">Text or URL</label>
+      <textarea
+        id="text"
+        rows="3"
+        placeholder="https://example.com"
+        autofocus
+      ></textarea>
 
-            <div class="options">
-                <label for="size">
-                    Size
-                    <input
-                        id="size"
-                        type="number"
-                        min="128"
-                        max="1024"
-                        step="32"
-                        value="320"
-                    />
-                </label>
-                <label for="ecl">
-                    Error correction
-                    <select id="ecl">
-                        <option value="L">Low</option>
-                        <option value="M" selected>Medium</option>
-                        <option value="Q">Quartile</option>
-                        <option value="H">High</option>
-                    </select>
-                </label>
-            </div>
+      <div class="options">
+        <label for="size">
+          Size
+          <input
+            id="size"
+            type="number"
+            min="128"
+            max="1024"
+            step="32"
+            value="320"
+          />
+        </label>
+        <label for="ecl">
+          Error correction
+          <select id="ecl">
+            <option value="L">Low</option>
+            <option value="M" selected>Medium</option>
+            <option value="Q">Quartile</option>
+            <option value="H">High</option>
+          </select>
+        </label>
+      </div>
 
-            <div class="color-row">
-                <label>Color</label>
-                <div class="color-controls">
-                    <button
-                        type="button"
-                        class="swatch active"
-                        data-color="#000000"
-                        style="--swatch: #000000"
-                        aria-label="Black (#000000)"
-                        title="Black (#000000)"
-                    ></button>
-                    <button
-                        type="button"
-                        class="swatch"
-                        data-color="#1F2937"
-                        style="--swatch: #1f2937"
-                        aria-label="Charcoal (#1F2937)"
-                        title="Charcoal (#1F2937)"
-                    ></button>
-                    <button
-                        type="button"
-                        class="swatch"
-                        data-color="#0F172A"
-                        style="--swatch: #0f172a"
-                        aria-label="Dark navy (#0F172A)"
-                        title="Dark navy (#0F172A)"
-                    ></button>
-                    <button
-                        type="button"
-                        class="swatch"
-                        data-color="#1D75BC"
-                        style="--swatch: #1d75bc"
-                        aria-label="Dark blue (#1D75BC)"
-                        title="Dark blue (#1D75BC)"
-                    ></button>
-                    <button
-                        type="button"
-                        class="swatch"
-                        data-color="#27AAE1"
-                        style="--swatch: #27aae1"
-                        aria-label="Light blue (#27AAE1)"
-                        title="Light blue (#27AAE1)"
-                    ></button>
-                    <button
-                        type="button"
-                        class="swatch"
-                        data-color="#14532D"
-                        style="--swatch: #14532d"
-                        aria-label="Dark green (#14532D)"
-                        title="Dark green (#14532D)"
-                    ></button>
-                    <input
-                        id="color"
-                        type="color"
-                        value="#000000"
-                        aria-label="Custom color"
-                        title="Custom color"
-                    />
-                </div>
-            </div>
+      <div class="color-row">
+        <label>Color</label>
+        <div class="color-controls">
+          <button
+            type="button"
+            class="swatch active"
+            data-color="#000000"
+            style="--swatch: #000000"
+            aria-label="Black (#000000)"
+            title="Black (#000000)"
+          ></button>
+          <button
+            type="button"
+            class="swatch"
+            data-color="#1F2937"
+            style="--swatch: #1f2937"
+            aria-label="Charcoal (#1F2937)"
+            title="Charcoal (#1F2937)"
+          ></button>
+          <button
+            type="button"
+            class="swatch"
+            data-color="#0F172A"
+            style="--swatch: #0f172a"
+            aria-label="Dark navy (#0F172A)"
+            title="Dark navy (#0F172A)"
+          ></button>
+          <button
+            type="button"
+            class="swatch"
+            data-color="#1D75BC"
+            style="--swatch: #1d75bc"
+            aria-label="Dark blue (#1D75BC)"
+            title="Dark blue (#1D75BC)"
+          ></button>
+          <button
+            type="button"
+            class="swatch"
+            data-color="#27AAE1"
+            style="--swatch: #27aae1"
+            aria-label="Light blue (#27AAE1)"
+            title="Light blue (#27AAE1)"
+          ></button>
+          <button
+            type="button"
+            class="swatch"
+            data-color="#14532D"
+            style="--swatch: #14532d"
+            aria-label="Dark green (#14532D)"
+            title="Dark green (#14532D)"
+          ></button>
+          <input
+            id="color"
+            type="color"
+            value="#000000"
+            aria-label="Custom color"
+            title="Custom color"
+          />
+        </div>
+      </div>
 
-            <div class="logo-row">
-                <label for="logo">Logo</label>
-                <div class="logo-input">
-                    <input
-                        id="logo"
-                        type="file"
-                        accept="image/png,image/jpeg,image/svg+xml,image/webp"
-                    />
-                    <button id="clear-logo" type="button" hidden>Clear</button>
-                </div>
-            </div>
+      <div class="logo-row">
+        <label for="logo">Logo</label>
+        <div class="logo-input">
+          <input
+            id="logo"
+            type="file"
+            accept="image/png,image/jpeg,image/svg+xml,image/webp"
+          />
+          <button id="clear-logo" type="button" hidden>Clear</button>
+        </div>
+      </div>
 
-            <div id="logo-options" class="logo-options" hidden>
-                <label for="logo-size">
-                    Logo size <span id="logo-size-value">18%</span>
-                    <input
-                        id="logo-size"
-                        type="range"
-                        min="10"
-                        max="25"
-                        step="1"
-                        value="18"
-                    />
-                </label>
-            </div>
+      <div id="logo-options" class="logo-options" hidden>
+        <label for="logo-size">
+          Logo size <span id="logo-size-value">18%</span>
+          <input
+            id="logo-size"
+            type="range"
+            min="10"
+            max="25"
+            step="1"
+            value="18"
+          />
+        </label>
+      </div>
 
-            <div class="output">
-                <canvas id="canvas" aria-label="Generated QR code"></canvas>
-                <p id="hint" class="hint">
-                    Enter text above to generate a QR code.
-                </p>
-            </div>
+      <div class="output">
+        <canvas id="canvas" aria-label="Generated QR code"></canvas>
+        <p id="hint" class="hint">Enter text above to generate a QR code.</p>
+      </div>
 
-            <button id="download" type="button" disabled>Download PNG</button>
-        </main>
+      <button id="download" type="button" disabled>Download PNG</button>
+    </main>
 
-        <script type="module" src="/app.js"></script>
-    </body>
+    <script type="module" src="/app.js"></script>
+  </body>
 </html>

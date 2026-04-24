@@ -34,6 +34,25 @@
         </label>
       </div>
 
+      <div class="logo-row">
+        <label for="logo">Logo</label>
+        <div class="logo-input">
+          <input
+            id="logo"
+            type="file"
+            accept="image/png,image/jpeg,image/svg+xml,image/webp"
+          />
+          <button id="clear-logo" type="button" hidden>Clear</button>
+        </div>
+      </div>
+
+      <div id="logo-options" class="logo-options" hidden>
+        <label for="logo-size">
+          Logo size <span id="logo-size-value">18%</span>
+          <input id="logo-size" type="range" min="10" max="25" step="1" value="18" />
+        </label>
+      </div>
+
       <div class="output">
         <canvas id="canvas" aria-label="Generated QR code"></canvas>
         <p id="hint" class="hint">Enter text above to generate a QR code.</p>

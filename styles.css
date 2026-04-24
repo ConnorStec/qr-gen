@@ -77,6 +77,40 @@ select:focus {
   gap: 0.75rem;
 }
 
+.logo-options {
+  display: block;
+}
+
+.logo-row .logo-input {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.logo-row input[type="file"] {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.logo-options label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.logo-options input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+#logo-size-value {
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+
 .output {
   display: grid;
   place-items: center;
@@ -102,6 +136,7 @@ canvas.visible { display: block; }
 }
 
 .hint.error { color: #b91c1c; }
+.hint.info { color: var(--muted); }
 
 button {
   font: inherit;
